@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>ReactJs demo9</title>
+</head>
+<body>
+    <div id="demo"></div>
+    <script src="../../include/react.js"></script>
+    <script src="../../include/react-dom.js"></script>
+    <script src="../../include/browser.min.js"></script>
+    <script type="text/babel">
+        var Input = React.createClass({
+            getInitialState: function() {
+                return {value: 'Hello!'};
+            },
+            handleClick: function(event) {
+                this.setState({value: event.target.value});
+            },
+            render: function() {
+                var value = this.state.value;
+                console.log(this);
+                return (
+                    <div>
+                        <input type="text" value={value} onChange={this.handleClick} />
+                        <p>{value}</p>
+                    </div>
+                );
+            }
+        });
+
+        ReactDOM.render(
+            <Input />,
+            document.getElementById('demo')
+        );
+    </script>
+</body>
+</html>

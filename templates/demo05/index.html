@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>ReactJs demo5</title>
+</head>
+<body>
+    <div id="demo"></div>
+    <script src="../../include/react.js"></script>
+    <script src="../../include/react-dom.js"></script>
+    <script src="../../include/browser.min.js"></script>
+    <script type="text/babel">
+        var NotesList = React.createClass({
+            render: function() {
+                return (
+                    <ol>
+                        {
+                            React.Children.map(this.props.children, function (child) {
+                                return <li>{child}</li>;
+                            })
+                        }
+                    </ol>
+                );
+            }
+        });
+
+        ReactDOM.render(
+            <NotesList>
+                <span>Hello</span>
+                <span>World</span>
+            </NotesList>,
+            document.getElementById('demo')
+        );
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>ReactJs demo6</title>
+</head>
+<body>
+    <div id="demo"></div>
+    <script src="../../include/react.js"></script>
+    <script src="../../include/react-dom.js"></script>
+    <script src="../../include/browser.min.js"></script>
+    <script type="text/babel">
+        var data = '123';
+        var MyTitle = React.createClass({
+            propTypes: {
+                title: React.PropTypes.string.isRequired
+            },
+            render: function() {
+                return <h1>{this.props.name}</h1>;
+            }
+        });
+
+        ReactDOM.render(
+            <MyTitle title={data} />,
+            document.getElementById('demo')
+        );
+    </script>
+</body>
+</html>
